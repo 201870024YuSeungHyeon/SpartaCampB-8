@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,16 +14,27 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;   
     public int cardCount = 0;
 
-    float time = 0.00f;
+    float time = 30.00f;
 
     AudioSource audioSource;
     public AudioClip clip;
+
+    private Alert alert;
+    private GameObject obj;
 
     private void Awake()
     {
         if (Instance == null) 
         {
             Instance = this;
+        }
+
+        if (obj = GameObject.Find("TimeTxt"))
+        {
+            if (!obj.TryGetComponent<Alert>(out alert))
+            {
+                Debug.Log("GameManager.cs - Awake() - alert 참조 실패");
+            }
         }
     }
 
@@ -37,12 +49,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        time += Time.deltaTime;
+        time -= Time.deltaTime;
         timeTxt.text = time.ToString("N2");
-        
-        if (time >= 30f)
-        {            
-            timeTxt.text = "30.00";
+
+        if(time > 0.0f && time <= 5.0f)
+        {
+            alert.AlertTIme();
+        }
+        else if(time <= 0.0f)
+        {
             GameOver();
         }
     }
