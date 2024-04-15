@@ -1,31 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    public int idx = 0;
+    public int idx;
 
     public GameObject front;
     public GameObject back;
 
     public Animator anim;
 
-    AudioSource audioSource;
+    private AudioSource _audioSource;
     public AudioClip clip;
 
     public SpriteRenderer frontImage;
+    private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        _audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -37,44 +29,45 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {           
-        if (GameManager.Instance.secondCard != null) return;
+        if (GameManager.instance.secondCard != null) return;
 
-        audioSource.PlayOneShot(clip);
+        _audioSource.PlayOneShot(clip);
 
-        anim.SetBool("isOpen", true);
+        anim.SetBool(IsOpen, true);
 
         front.SetActive(true);
         back.SetActive(false);
 
-        if (GameManager.Instance.firstCard == null)
+        if (GameManager.instance.firstCard == null)
         {
-            GameManager.Instance.firstCard = this;
+            GameManager.instance.firstCard = this;
         }      
         else
         {
-            GameManager.Instance.secondCard = this;            
-            GameManager.Instance.Matched();
+            GameManager.instance.secondCard = this;            
+            GameManager.instance.Matched();
         }
         
     }
 
     public void DestroyCard()
     {          
-        Invoke("DestroyCardInvoke", 1.0f);
+        Invoke(nameof(DestroyCardInvoke), 1.0f);
     }
 
-    void DestroyCardInvoke()
+    private void DestroyCardInvoke()
     {
         Destroy(gameObject);
     }
 
     public void CloseCard()
     {
-        Invoke("CloseCardInvoke", 1.0f);
+        Invoke(nameof(CloseCardInvoke), 1.0f);
     }
-    void CloseCardInvoke()
+
+    private void CloseCardInvoke()
     {
-        anim.SetBool("isOpen", false);
+        anim.SetBool(IsOpen, false);
 
         front.SetActive(false);
         back.SetActive(true);

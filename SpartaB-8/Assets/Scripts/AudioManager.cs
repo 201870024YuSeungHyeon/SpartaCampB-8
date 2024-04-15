@@ -1,40 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
-{   
-    public static AudioManager Instance;
+{
+    private static AudioManager _instance;
 
-    AudioSource audioSource;
+<<<<<<< HEAD
+    private AudioSource _audioSource;
+=======
+    public AudioSource audioSource;
+>>>>>>> 8938b5a7de8c26d1f9beda4dc96b0e11818aff9c
     public AudioClip clip;
 
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance == null)
         {
+<<<<<<< HEAD
+            _instance = this;            
+=======
+            Debug.Log("1");
             Instance = this;            
+>>>>>>> 8938b5a7de8c26d1f9beda4dc96b0e11818aff9c
             DontDestroyOnLoad(gameObject);
+            audioSource = GetComponent<AudioSource>();
+
+            audioSource.clip = this.clip;
+            audioSource.Play();
+
         }
         else 
-        {            
-            Destroy(gameObject);           
+        {
+            Debug.Log("2");
+            Destroy(gameObject);
+            
         }
     
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+<<<<<<< HEAD
+        _audioSource = GetComponent<AudioSource>();
 
-        audioSource.clip = this.clip;
-        audioSource.Play();
+        _audioSource.clip = this.clip;
+        _audioSource.Play();
+=======
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
+>>>>>>> 8938b5a7de8c26d1f9beda4dc96b0e11818aff9c
     }
 }
