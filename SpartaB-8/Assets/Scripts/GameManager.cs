@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     private Alert alert;
     private GameObject obj;
 
+    bool isPause;
+
     private void Awake()
     {
         if (Instance == null) 
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         audioSource = GetComponent<AudioSource>();
+        isPause = false;
     }
 
     // Update is called once per frame
@@ -94,4 +97,21 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         endTxt.SetActive(true);
     }
+
+   public void Pause()
+    {
+        if(isPause == false)
+        {
+            Time.timeScale = 0.0f;
+            isPause = true;
+            return;
+        }
+        if(isPause == true)
+        {
+            Time.timeScale = 1.0f;
+            isPause = false;
+            return;
+        }
+    }
+
 }
