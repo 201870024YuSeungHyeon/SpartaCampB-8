@@ -13,18 +13,15 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance == null)
         {
-            Debug.Log("1");
+          
             Instance = this;            
             DontDestroyOnLoad(gameObject);
-            audioSource = GetComponent<AudioSource>();
-
-            audioSource.clip = this.clip;
-            audioSource.Play();
+            
 
         }
         else 
         {
-            Debug.Log("2");
+            
             Destroy(gameObject);
             
         }
@@ -34,7 +31,10 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = this.clip;
+        audioSource.Play();
     }
 
     // Update is called once per frame
