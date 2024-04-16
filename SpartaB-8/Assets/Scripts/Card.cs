@@ -28,7 +28,8 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {
-        back.GetComponent<SpriteRenderer>().color = Color.grey;
+        ColorUtility.TryParseHtmlString("#C0C0C0", out var color);  // 16진수 색상코드(옅은 회색)를 Color로 변환
+        back.GetComponent<SpriteRenderer>().color = color;  // 뒤집었던 카드 색상 변경
         if (GameManager.Instance.secondCard != null) return;
 
         _audioSource.PlayOneShot(clip);
