@@ -1,19 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationHandler : MonoBehaviour
 {
-  public Animator boardAnim;
+    public Animator boardAnim;
 
-    void Awake() 
+    private void Awake()
     {
-      boardAnim = GetComponent<Animator>();
+        boardAnim = GetComponent<Animator>();
     }
 
     public void timerStart()
     {
-      GameManager.Instance.animEnd = false;
+        GameManager.Instance.animEnd = false;
     }
-    
 }

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Card : MonoBehaviour
 {
     public int idx;
-    int stageNumber;
+    private int _stageNumber;
 
     public GameObject front;
     public GameObject back;
@@ -19,11 +19,11 @@ public class Card : MonoBehaviour
 
     private void Awake()
     {
-        if (SceneManager.GetActiveScene().name == "SeungHyeonScene") stageNumber = 0;
-        else if (SceneManager.GetActiveScene().name == "ChihoonScene") stageNumber = 10;
-        else if (SceneManager.GetActiveScene().name == "MoojinScene") stageNumber = 20;
-        else if (SceneManager.GetActiveScene().name == "NakwonScene") stageNumber = 30;
-        else if (SceneManager.GetActiveScene().name == "TaeilScene") stageNumber = 40;
+        if (SceneManager.GetActiveScene().name == "SeungHyeonScene") _stageNumber = 0;
+        else if (SceneManager.GetActiveScene().name == "ChihoonScene") _stageNumber = 10;
+        else if (SceneManager.GetActiveScene().name == "MoojinScene") _stageNumber = 20;
+        else if (SceneManager.GetActiveScene().name == "NakwonScene") _stageNumber = 30;
+        else if (SceneManager.GetActiveScene().name == "TaeilScene") _stageNumber = 40;
     }
 
     private void Start()
@@ -32,15 +32,16 @@ public class Card : MonoBehaviour
     }
 
     public void Setting(int number)
-    {       
+    {
         idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx + stageNumber}");
+        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx + _stageNumber}");
     }
 
     public void OpenCard()
     {
-        ColorUtility.TryParseHtmlString("#C0C0C0", out var color);  // 16진수 색상코드(옅은 회색)를 Color로 변환
-        back.GetComponent<SpriteRenderer>().color = color;  // 뒤집었던 카드 색상 변경
+        if (!(Time.timeScale > 0.0f)) return;
+        ColorUtility.TryParseHtmlString("#C0C0C0", out var color); // 16진수 색상코드(옅은 회색)를 Color로 변환
+        back.GetComponent<SpriteRenderer>().color = color; // 뒤집었던 카드 색상 변경
         if (GameManager.Instance.secondCard != null) return;
 
         _audioSource.PlayOneShot(clip);
@@ -53,17 +54,16 @@ public class Card : MonoBehaviour
         if (GameManager.Instance.firstCard == null)
         {
             GameManager.Instance.firstCard = this;
-        }      
+        }
         else
         {
-            GameManager.Instance.secondCard = this;            
+            GameManager.Instance.secondCard = this;
             GameManager.Instance.Matched();
         }
-        
     }
 
     public void DestroyCard()
-    {          
+    {
         Invoke(nameof(DestroyCardInvoke), 1.0f);
     }
 

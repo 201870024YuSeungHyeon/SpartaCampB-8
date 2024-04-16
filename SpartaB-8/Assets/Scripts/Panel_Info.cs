@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Panel_Info : MonoBehaviour
 {
-    public Text txt_HighScore;
-    public GameObject Info_Panel;
-    int score;
+    public Text TxtHighScore;
+    public GameObject InfoPanel;
+    private int _score;
 
     private void Awake()
     {
-        Info_Panel.SetActive(false);
+        InfoPanel.SetActive(false);
     }
 
     public void Show(string name)
@@ -19,15 +19,15 @@ public class Panel_Info : MonoBehaviour
         Debug.Log("여기까지");
         if (!PlayerPrefs.HasKey(name))
         {
-            score = PlayerPrefs.GetInt(name);
-            txt_HighScore.text = "BEST\n" + score.ToString();
+            _score = PlayerPrefs.GetInt(name);
+            TxtHighScore.text = "BEST\n" + _score;
         }
         else
         {
-            score = PlayerPrefs.GetInt(name);
-            txt_HighScore.text = "BEST\n" + score.ToString();
+            _score = PlayerPrefs.GetInt(name);
+            TxtHighScore.text = "BEST\n" + _score;
         }
-        Info_Panel.SetActive(true);
+        InfoPanel.SetActive(true);
       
     }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Alert : MonoBehaviour
@@ -10,7 +8,7 @@ public class Alert : MonoBehaviour
     {
         if (!TryGetComponent(out anim))
         {
-            Debug.Log("Alert.cs - Awake() - anim ÂüÁ¶ ½ÇÆÐ");
+            Debug.Log("Alert.cs - Awake() - anim ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         }
     }
 
