@@ -401,7 +401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &390653685
 RectTransform:
   m_ObjectHideFlags: 0
@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 881043172}
   - component: {fileID: 881043171}
   - component: {fileID: 881043173}
+  - component: {fileID: 881043174}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -532,6 +533,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &881043174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881043170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b577f0e0d742ad44a8ec9eee4f8115dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardAnim: {fileID: 881043173}
 --- !u!1 &943645728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,12 +1900,15 @@ MonoBehaviour:
   timeTxt: {fileID: 335620592}
   matchTxt: {fileID: 1698306284}
   result: {fileID: 390653684}
+  boardAnim: {fileID: 881043173}
   cardCount: 0
   nowScore: {fileID: 83951345}
   getScore: 0
   bestScore: {fileID: 943645730}
   time: 30
   clip: {fileID: 8300000, guid: 094d79f535ad96343bb360d4356ec57d, type: 3}
+  unMatch: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
+  animEnd: 1
   hudTimeDecreaseTxt: {fileID: 1685094824145580332, guid: 1f859d861a78740408d767d8b6d06bc0, type: 3}
 --- !u!4 &1983795401
 Transform:
