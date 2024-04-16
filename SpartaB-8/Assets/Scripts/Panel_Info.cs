@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -18,7 +16,7 @@ public class Panel_Info : MonoBehaviour
 
     public void Show()
     {
-        //int score = FindObjectOfType<½ºÄÚ¾îÀúÀå>.//½ºÄÚ¾îÀúÀåÀ¸·ÎºÎÅÍ Á¡¼ö ºÒ·¯¿À±â
+        //int score = FindObjectOfType<ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ï¿½ï¿½>.//ï¿½ï¿½ï¿½Ú¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
         Info_Panel.SetActive(true);
         //txt_HighScore.text = "BEST\n" + score.Tostring();
     }
