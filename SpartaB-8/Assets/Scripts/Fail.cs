@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoAnims : MonoBehaviour
+public class Fail : MonoBehaviour
 {
     private Animator anim;
 
@@ -14,12 +14,7 @@ public class DoAnims : MonoBehaviour
         }
     }
 
-    public void AlertTime()
-    {
-        anim.SetTrigger("Alert");
-    }
-
-    public void Fail()
+    public void MatchFail()
     {
         anim.SetTrigger("Fail");
     }
