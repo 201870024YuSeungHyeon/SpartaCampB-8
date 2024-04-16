@@ -5,7 +5,7 @@ public class RetryBtn : MonoBehaviour
 {
     public void Retry()
     {   
-        SceneManager.LoadScene("TaeilScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
