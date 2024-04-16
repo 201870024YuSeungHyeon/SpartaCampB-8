@@ -66,7 +66,7 @@ public class Card : MonoBehaviour
         Invoke(nameof(CloseCardInvoke), 1.0f);
     }
 
-    private void CloseCardInvoke()
+    public void CloseCardInvoke()
     {
         anim.SetBool(IsOpen, false);
 
