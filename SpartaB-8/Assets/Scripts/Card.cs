@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Card : MonoBehaviour
 {
     public int idx;
+    int stageNumber;
 
     public GameObject front;
     public GameObject back;
@@ -15,6 +17,15 @@ public class Card : MonoBehaviour
     public SpriteRenderer frontImage;
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene().name == "SeungHyeonScene") stageNumber = 0;
+        else if (SceneManager.GetActiveScene().name == "ChihoonScene") stageNumber = 10;
+        else if (SceneManager.GetActiveScene().name == "MoojinScene") stageNumber = 20;
+        else if (SceneManager.GetActiveScene().name == "NakwonScene") stageNumber = 30;
+        else if (SceneManager.GetActiveScene().name == "TaeilScene") stageNumber = 40;
+    }
+
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -22,8 +33,8 @@ public class Card : MonoBehaviour
 
     public void Setting(int number)
     {       
-        idx = number;        
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        idx = number;
+        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx + stageNumber}");
     }
 
     public void OpenCard()
