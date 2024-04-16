@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: SeungHyeon
+  sceneName: 
 --- !u!1 &1218192917
 GameObject:
   m_ObjectHideFlags: 0
