@@ -3,12 +3,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-
-
     public AudioSource audioSource;
-
-   
-
     public AudioClip clip;
 
     private void Awake()
@@ -24,15 +19,11 @@ public class AudioManager : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
         }
-        else 
+        else
         {
-           
             Destroy(gameObject);
-            
         }
-    
     }
 
     private void Start()
@@ -40,6 +31,5 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.Play();
-
     }
 }
