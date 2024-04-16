@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
 --- !u!114 &73813563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &682918668
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1276,6 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
 --- !u!114 &1196286480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1597,6 +1599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: SeungHyeon
 --- !u!114 &1912072979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1659,13 +1662,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1912072983}
         m_TargetAssemblyTypeName: Panel_Info, Assembly-CSharp
         m_MethodName: Show
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SeungHyeon
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1912072981
@@ -1718,7 +1721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f9e3e51c11ea148b39877709f5427a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt_HighScore: {fileID: 0}
+  txt_HighScore: {fileID: 1029797691}
   Info_Panel: {fileID: 682918667}
 --- !u!1 &1939866813
 GameObject:
@@ -1852,6 +1855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
 --- !u!114 &1951670796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,6 +2086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
 --- !u!114 &2031368630
 MonoBehaviour:
   m_ObjectHideFlags: 0

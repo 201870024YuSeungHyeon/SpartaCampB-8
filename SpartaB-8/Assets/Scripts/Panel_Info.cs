@@ -7,18 +7,28 @@ public class Panel_Info : MonoBehaviour
 {
     public Text txt_HighScore;
     public GameObject Info_Panel;
+    int score;
 
     private void Awake()
     {
-
         Info_Panel.SetActive(false);
     }
 
-    public void Show()
+    public void Show(string name)
     {
-        //int score = FindObjectOfType<���ھ�����>.//���ھ��������κ��� ���� �ҷ�����
+        Debug.Log("여기까지");
+        if (!PlayerPrefs.HasKey(name))
+        {
+            score = PlayerPrefs.GetInt(name);
+            txt_HighScore.text = "BEST\n" + score.ToString();
+        }
+        else
+        {
+            score = PlayerPrefs.GetInt(name);
+            txt_HighScore.text = "BEST\n" + score.ToString();
+        }
         Info_Panel.SetActive(true);
-        //txt_HighScore.text = "BEST\n" + score.Tostring();
+      
     }
 
     public void OnClick_Play()

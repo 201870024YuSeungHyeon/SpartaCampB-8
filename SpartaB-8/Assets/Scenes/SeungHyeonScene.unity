@@ -676,6 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
 --- !u!114 &1076535022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: SeungHyeon
 --- !u!1 &1218192917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,6 +1907,7 @@ MonoBehaviour:
   nowScore: {fileID: 83951345}
   getScore: 0
   bestScore: {fileID: 943645730}
+  key: bestScore
   time: 30
   clip: {fileID: 8300000, guid: 094d79f535ad96343bb360d4356ec57d, type: 3}
   unMatch: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
