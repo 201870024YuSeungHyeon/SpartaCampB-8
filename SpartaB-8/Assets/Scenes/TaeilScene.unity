@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 1132474342}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -801,9 +801,10 @@ MonoBehaviour:
   secondCard: {fileID: 0}
   timeTxt: {fileID: 335620592}
   endTxt: {fileID: 2110236893}
-  matchTxt: {fileID: 722897841}
   cardCount: 0
+  time: 30
   clip: {fileID: 8300000, guid: 094d79f535ad96343bb360d4356ec57d, type: 3}
+  hudTimeDecreaseTxt: {fileID: 1685094824145580332, guid: 1f859d861a78740408d767d8b6d06bc0, type: 3}
 --- !u!4 &1983795401
 Transform:
   m_ObjectHideFlags: 0
