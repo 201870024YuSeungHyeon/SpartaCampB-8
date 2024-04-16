@@ -18,7 +18,6 @@ public class Card : MonoBehaviour
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-
     }
 
     public void Setting(int number)
@@ -28,7 +27,8 @@ public class Card : MonoBehaviour
     }
 
     public void OpenCard()
-    {           
+    {
+        back.GetComponent<SpriteRenderer>().color = Color.grey;
         if (GameManager.Instance.secondCard != null) return;
 
         _audioSource.PlayOneShot(clip);

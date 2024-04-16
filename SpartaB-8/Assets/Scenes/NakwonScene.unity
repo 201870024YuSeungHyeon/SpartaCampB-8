@@ -699,6 +699,7 @@ MonoBehaviour:
   timeTxt: {fileID: 77967975}
   endTxt: {fileID: 864732913}
   cardCount: 0
+  time: 30
   clip: {fileID: 8300000, guid: 094d79f535ad96343bb360d4356ec57d, type: 3}
   hudTimeDecreaseTxt: {fileID: 1685094824145580332, guid: 1f859d861a78740408d767d8b6d06bc0, type: 3}
 --- !u!4 &1051916298

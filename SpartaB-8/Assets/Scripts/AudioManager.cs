@@ -35,18 +35,11 @@ public class AudioManager : MonoBehaviour
     
     }
 
-    void Start()
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = this.clip;
+        audioSource.clip = clip;
         audioSource.Play();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-      
 
     }
 }
