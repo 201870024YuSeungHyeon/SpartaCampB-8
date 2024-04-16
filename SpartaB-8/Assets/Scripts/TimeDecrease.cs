@@ -5,17 +5,21 @@ public class TimeDecrease : MonoBehaviour
 {
     private float _moveSpeed;
     private float _alphaSpeed;
-    private TextMeshPro _content;
+    private TextMeshProUGUI _content;
     private Color _alpha;
 
-    private void Start()
+    private void Awake()
     {
         _moveSpeed = 1.0f;
         _alphaSpeed = 1.0f;
-        _content = GetComponent<TextMeshPro>();
+        _content = GetComponent<TextMeshProUGUI>();
         _content.text = "-2";
         _alpha = _content.color;
-        Invoke(nameof(DestroyObject), 3.0f);
+    }
+    
+    private void Start()
+    {
+        InvokeDestroy();
     }
 
     private void Update()
@@ -25,8 +29,15 @@ public class TimeDecrease : MonoBehaviour
         _content.color = _alpha;
     }
 
-    private void DestroyObject()
+    private void InvokeDestroy()
     {
-        Destroy(gameObject);
+        if (GameManager.Instance.time >= 2.4f)
+        {
+            Destroy(gameObject, 2.4f);
+        }
+        else
+        {
+            DestroyImmediate(gameObject, true);
+        }
     }
 }

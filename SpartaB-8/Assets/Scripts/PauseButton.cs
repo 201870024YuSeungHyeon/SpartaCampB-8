@@ -1,60 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEditor.Experimental.GraphView;
 
 public class PauseButton : MonoBehaviour
 {
-    public AudioSource audioSource;
+    private AudioSource _audioSource;
     public GameObject goMainBtn;
     public GameObject pauseTxt;
 
-    GameManager gameManager;
-    bool isPause;
+    private GameManager _gameManager;
+    private bool _isPause;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
-        gameManager = FindObjectOfType<GameManager>();
+        _gameManager = FindObjectOfType<GameManager>();
         goMainBtn.SetActive(false);
         pauseTxt.SetActive(false);
-        isPause = false;
-        if (audioSource == null)
-        {
-            audioSource = AudioManager.Instance.audioSource;
-            audioSource.Play();
-        }
-
+        _isPause = false;
+        if (_audioSource != null) return;
+        _audioSource = AudioManager.Instance.audioSource;
+        _audioSource.Play();
     }
 
     public void pauseButton()
     {
-
-       
-        if (!isPause)
+        if (!_isPause)
         {
-            audioSource.Pause();
+            _audioSource.Pause();
             goMainBtn.SetActive(true);
             pauseTxt.SetActive(true);
-            gameManager.Pause();
-            isPause = true;
+            _gameManager.Pause();
+            _isPause = true;
         }
         else
         {
             resumeButton();
-            isPause = false;
+            _isPause = false;
         }
     }
 
-    public void resumeButton()
+    private void resumeButton()
     {
-        Debug.Log("µø¿€«‘");
-        gameManager.Pause();
+        _gameManager.Pause();
         goMainBtn.SetActive(false);
         pauseTxt.SetActive(false);
-        audioSource.Play();
+        _audioSource.Play();
     }
 }

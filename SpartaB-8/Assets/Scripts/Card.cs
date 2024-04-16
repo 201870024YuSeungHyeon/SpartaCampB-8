@@ -29,7 +29,7 @@ public class Card : MonoBehaviour
 
     public void OpenCard()
     {           
-        if (GameManager.instance.secondCard != null) return;
+        if (GameManager.Instance.secondCard != null) return;
 
         _audioSource.PlayOneShot(clip);
 
@@ -38,14 +38,14 @@ public class Card : MonoBehaviour
         front.SetActive(true);
         back.SetActive(false);
 
-        if (GameManager.instance.firstCard == null)
+        if (GameManager.Instance.firstCard == null)
         {
-            GameManager.instance.firstCard = this;
+            GameManager.Instance.firstCard = this;
         }      
         else
         {
-            GameManager.instance.secondCard = this;            
-            GameManager.instance.Matched();
+            GameManager.Instance.secondCard = this;            
+            GameManager.Instance.Matched();
         }
         
     }
