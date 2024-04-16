@@ -1579,7 +1579,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1765746398}
         m_TargetAssemblyTypeName: PauseButton, Assembly-CSharp
-        m_MethodName: pauseButton
+        m_MethodName: PauseBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

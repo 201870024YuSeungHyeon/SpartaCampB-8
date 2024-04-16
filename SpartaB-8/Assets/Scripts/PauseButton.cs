@@ -20,7 +20,7 @@ public class PauseButton : MonoBehaviour
         _audioSource.Play();
     }
 
-    public void pauseButton()
+    public void PauseBtn()
     {
         if (!_isPause)
         {
@@ -32,12 +32,12 @@ public class PauseButton : MonoBehaviour
         }
         else
         {
-            resumeButton();
+            ResumeBtn();
             _isPause = false;
         }
     }
 
-    private void resumeButton()
+    private void ResumeBtn()
     {
         _gameManager.Pause();
         goMainBtn.SetActive(false);
