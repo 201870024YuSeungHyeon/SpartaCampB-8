@@ -7,7 +7,7 @@ using UnityEditor.Experimental.GraphView;
 
 public class PauseButton : MonoBehaviour
 {
-    public AudioSource audioSource;
+    AudioSource audioSource;
     public GameObject goMainBtn;
     public GameObject pauseTxt;
 
