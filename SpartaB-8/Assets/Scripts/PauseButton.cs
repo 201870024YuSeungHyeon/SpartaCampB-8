@@ -22,6 +22,8 @@ public class PauseButton : MonoBehaviour
 
     public void PauseBtn()
     {
+        if (GameManager.Instance.isGameOver) return;
+
         if (!_isPause)
         {
             _audioSource.Pause();
