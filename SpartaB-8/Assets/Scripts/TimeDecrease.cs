@@ -24,6 +24,10 @@ public class TimeDecrease : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.time <= 0.0f)
+        {
+            Destroy(gameObject);
+        }
         transform.Translate(new Vector3(0, _moveSpeed * Time.deltaTime, 0));
         _alpha.a = Mathf.Lerp(_alpha.a, 0, Time.deltaTime * _alphaSpeed);
         _content.color = _alpha;
