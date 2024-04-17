@@ -1,5 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
+public enum BGM_Type
+{
+    BGM_Normal = 0,
+    BGN_NoTime,
+
+}
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
@@ -31,5 +39,50 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = clip;
         audioSource.Play();
+    }
+
+    public void StartBGM(BGM_Type newBGM)
+    {
+        clip = bgmList[(int)newBGM];
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
+
+    [SerializeField]
+    private List<AudioClip> bgmList;
+
+    public void ChangeBGM(BGM_Type newBGM)
+    {
+        StartCoroutine(ChangeBGMClip(bgmList[(int)newBGM]));
+    }
+
+    float current;
+    float percent;
+
+    IEnumerator ChangeBGMClip(AudioClip newClip)
+    {
+        current = 0f;
+        percent = 0f;
+
+        while (percent < 1)  // 기존의 BGM의 볼륨을 줄여나간다
+        {
+            current += Time.deltaTime;
+            percent = current / 1f;
+            audioSource.volume = Mathf.Lerp(1f, 0f, percent);
+            yield return null;
+        }
+
+        audioSource.clip = newClip;
+        audioSource.Play();
+        current = 0f;
+        percent = 0f;
+
+        while (percent < 1)  // 새로운 BGM의 볼륨을 키워나간다
+        {
+            current += Time.deltaTime;
+            percent = current / 1f;
+            audioSource.volume = Mathf.Lerp(0f, 1f, percent);
+            yield return null;
+        }
     }
 }
