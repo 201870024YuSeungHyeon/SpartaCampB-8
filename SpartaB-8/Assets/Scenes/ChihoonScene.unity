@@ -2172,7 +2172,7 @@ MonoBehaviour:
   secondCard: {fileID: 0}
   timeTxt: {fileID: 335620592}
   matchTxt: {fileID: 1698306284}
-  correctTxt: {fileID: 0}
+  correctTxt: {fileID: 925977565}
   result: {fileID: 390653684}
   boardAnim: {fileID: 881043173}
   cardCount: 0
