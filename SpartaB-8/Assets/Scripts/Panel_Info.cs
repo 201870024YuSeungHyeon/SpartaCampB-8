@@ -9,6 +9,8 @@ public class Panel_Info : MonoBehaviour
     public GameObject InfoPanel;
     private int _score;
 
+    string sceneName;
+    
     private void Awake()
     {
         InfoPanel.SetActive(false);
@@ -16,7 +18,8 @@ public class Panel_Info : MonoBehaviour
 
     public void Show(string name)
     {
-        Debug.Log("여기까지");
+        sceneName = name;
+
         if (!PlayerPrefs.HasKey(name))
         {
             _score = PlayerPrefs.GetInt(name);
@@ -33,7 +36,7 @@ public class Panel_Info : MonoBehaviour
 
     public void OnClick_Play()
     {
-        SceneManager.LoadScene("SeungHyeonScene");
+        SceneManager.LoadScene(sceneName);
     }
 
     public void OnClick_GoMain()
