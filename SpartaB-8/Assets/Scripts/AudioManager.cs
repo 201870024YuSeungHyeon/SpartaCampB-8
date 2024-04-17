@@ -58,6 +58,7 @@ public class AudioManager : MonoBehaviour
 
     float current;
     float percent;
+    public readonly float changeDuration = 1f;
 
     IEnumerator ChangeBGMClip(AudioClip newClip)
     {
@@ -67,7 +68,7 @@ public class AudioManager : MonoBehaviour
         while (percent < 1)  // 기존의 BGM의 볼륨을 줄여나간다
         {
             current += Time.deltaTime;
-            percent = current / 1f;
+            percent = current /  changeDuration;
             audioSource.volume = Mathf.Lerp(1f, 0f, percent);
             yield return null;
         }
@@ -80,7 +81,7 @@ public class AudioManager : MonoBehaviour
         while (percent < 1)  // 새로운 BGM의 볼륨을 키워나간다
         {
             current += Time.deltaTime;
-            percent = current / 1f;
+            percent = current / changeDuration;
             audioSource.volume = Mathf.Lerp(0f, 1f, percent);
             yield return null;
         }
