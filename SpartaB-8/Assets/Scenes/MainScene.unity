@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 73813564}
   - component: {fileID: 73813563}
   - component: {fileID: 73813562}
+  - component: {fileID: 73813567}
   m_Layer: 5
   m_Name: TaeilBtn
   m_TagString: Untagged
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Taeil
 --- !u!114 &73813563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,16 +237,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 73813562}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: TaeilScene
-        m_Mode: 1
+      - m_Target: {fileID: 73813567}
+        m_TargetAssemblyTypeName: Panel_Info, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Taeil
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &73813565
@@ -286,6 +287,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 73813560}
   m_CullTransparentMesh: 1
+--- !u!114 &73813567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73813560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f9e3e51c11ea148b39877709f5427a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TxtHighScore: {fileID: 1029797691}
+  InfoPanel: {fileID: 682918667}
 --- !u!1 &286818249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1253,7 @@ GameObject:
   - component: {fileID: 1196286481}
   - component: {fileID: 1196286480}
   - component: {fileID: 1196286479}
+  - component: {fileID: 1196286484}
   m_Layer: 5
   m_Name: NakwonBtn
   m_TagString: Untagged
@@ -1277,7 +1293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Nakwon
 --- !u!114 &1196286480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,16 +1353,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1196286479}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: NakwonBtn
-        m_Mode: 1
+      - m_Target: {fileID: 1196286484}
+        m_TargetAssemblyTypeName: Panel_Info, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Nakwon
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1196286482
@@ -1387,6 +1403,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196286477}
   m_CullTransparentMesh: 1
+--- !u!114 &1196286484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196286477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f9e3e51c11ea148b39877709f5427a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TxtHighScore: {fileID: 1029797691}
+  InfoPanel: {fileID: 682918667}
 --- !u!1 &1746214951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,8 +1751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f9e3e51c11ea148b39877709f5427a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt_HighScore: {fileID: 1029797691}
-  Info_Panel: {fileID: 682918667}
+  TxtHighScore: {fileID: 1029797691}
+  InfoPanel: {fileID: 682918667}
 --- !u!1 &1939866813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,6 +1846,7 @@ GameObject:
   - component: {fileID: 1951670797}
   - component: {fileID: 1951670796}
   - component: {fileID: 1951670795}
+  - component: {fileID: 1951670800}
   m_Layer: 5
   m_Name: MoojinBtn
   m_TagString: Untagged
@@ -1855,7 +1886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Moojin
 --- !u!114 &1951670796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1915,16 +1946,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1951670795}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: MoojinBtn
-        m_Mode: 1
+      - m_Target: {fileID: 1951670800}
+        m_TargetAssemblyTypeName: Panel_Info, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Moojin
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1951670798
@@ -1965,6 +1996,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951670793}
   m_CullTransparentMesh: 1
+--- !u!114 &1951670800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951670793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f9e3e51c11ea148b39877709f5427a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TxtHighScore: {fileID: 1029797691}
+  InfoPanel: {fileID: 682918667}
 --- !u!1 &1980359703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,6 +2092,7 @@ GameObject:
   - component: {fileID: 2031368631}
   - component: {fileID: 2031368630}
   - component: {fileID: 2031368629}
+  - component: {fileID: 2031368634}
   m_Layer: 5
   m_Name: ChihoonBtn
   m_TagString: Untagged
@@ -2086,7 +2132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0604b231d085220429d8849342793d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: Chihoon
 --- !u!114 &2031368630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,16 +2192,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2031368629}
-        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: ChihoonBtn
-        m_Mode: 1
+      - m_Target: {fileID: 2031368634}
+        m_TargetAssemblyTypeName: Panel_Info, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Chihoon
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2031368632
@@ -2196,6 +2242,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031368627}
   m_CullTransparentMesh: 1
+--- !u!114 &2031368634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031368627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f9e3e51c11ea148b39877709f5427a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TxtHighScore: {fileID: 1029797691}
+  InfoPanel: {fileID: 682918667}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
