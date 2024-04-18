@@ -16,8 +16,7 @@ public class Card : MonoBehaviour
 
     public SpriteRenderer frontImage;
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
-
-    public bool isOpen = false;
+   
 
     private void Awake()
     {
@@ -54,15 +53,13 @@ public class Card : MonoBehaviour
         front.SetActive(true);
         back.SetActive(false);
 
-        if (GameManager.Instance.firstCard == null && !isOpen)
-        {            
-            isOpen = true;      
+        if (GameManager.Instance.firstCard == null)
+        {
             GameManager.Instance.firstCard = this;
         }
-        
-        if(GameManager.Instance.firstCard != null && !isOpen)
-        {            
-            GameManager.Instance.secondCard = this;            
+        else
+        {
+            GameManager.Instance.secondCard = this;
             GameManager.Instance.Matched();
         }
     }
