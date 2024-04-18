@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
@@ -19,21 +17,18 @@ public class Card : MonoBehaviour
     public SpriteRenderer frontImage;
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
-    private bool isClick = false;
-    private Button button;
-
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "SeungHyeonScene") _stageNumber = 0;
         else if (SceneManager.GetActiveScene().name == "ChihoonScene") _stageNumber = 10;
         else if (SceneManager.GetActiveScene().name == "MoojinScene") _stageNumber = 20;
         else if (SceneManager.GetActiveScene().name == "NakwonScene") _stageNumber = 30;
-        else if (SceneManager.GetActiveScene().name == "TaeilScene") _stageNumber = 40;        
+        else if (SceneManager.GetActiveScene().name == "TaeilScene") _stageNumber = 40;
     }
 
     private void Start()
     {
-        _audioSource = GetComponent<AudioSource>();        
+        _audioSource = GetComponent<AudioSource>();
     }
 
     public void Setting(int number)
@@ -43,31 +38,31 @@ public class Card : MonoBehaviour
     }
 
     public void OpenCard()
-    {           
-        if (!(Time.timeScale > 0.0f)) return;                            
+    {
+        if (!(Time.timeScale > 0.0f)) return;
         if (GameManager.Instance.secondCard != null) return;
-      
+
         anim.SetBool(IsOpen, true);
         front.SetActive(true);
         back.SetActive(false);
 
         if (GameManager.Instance.firstCard == null)
-        {            
-            GameManager.Instance.firstCard = this;            
+        {
+            GameManager.Instance.firstCard = this;
             _audioSource.PlayOneShot(clip);
             ColorUtility.TryParseHtmlString("#C0C0C0", out var color); // 16진수 색상코드(옅은 회색)를 Color로 변환
             back.GetComponent<SpriteRenderer>().color = color; // 뒤집었던 카드 색상 변경
         }
         else
-        {               
+        {
             GameManager.Instance.secondCard = this;
-                        
+
             if (GameManager.Instance.firstCard == GameManager.Instance.secondCard)
-            {               
+            {
                 GameManager.Instance.secondCard = null;
                 return;
             }
-            
+
             _audioSource.PlayOneShot(clip);
             ColorUtility.TryParseHtmlString("#C0C0C0", out var color); // 16진수 색상코드(옅은 회색)를 Color로 변환
             back.GetComponent<SpriteRenderer>().color = color; // 뒤집었던 카드 색상 변경
@@ -81,7 +76,7 @@ public class Card : MonoBehaviour
     }
 
     private void DestroyCardInvoke()
-    {        
+    {
         Destroy(gameObject);
         GameManager.Instance.firstCard = null;
         GameManager.Instance.secondCard = null;
@@ -95,7 +90,7 @@ public class Card : MonoBehaviour
 
     public void CloseCardInvoke()
     {
-        anim.SetBool(IsOpen, false);               
+        anim.SetBool(IsOpen, false);
         front.SetActive(false);
         back.SetActive(true);
         GameManager.Instance.firstCard = null;

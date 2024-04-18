@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fail : MonoBehaviour
 {
-    private Animator anim;
+    private Animator _anim;
 
     private void Awake()
     {
-        if (!TryGetComponent(out anim))
+        if (!TryGetComponent(out _anim))
         {
-            Debug.Log("Alert.cs - Awake() - anim ÂüÁ¶ ½ÇÆÐ");
+            Debug.Log("Alert.cs - Awake() - anim ì°¸ì¡° ì‹¤íŒ¨");
         }
     }
 
     public void MatchFail()
     {
-        anim.SetTrigger("Fail");
+        _anim.SetTrigger(nameof(Fail));
     }
 }

@@ -6,7 +6,7 @@ public class TimeDecrease : MonoBehaviour
     private float _moveSpeed;
     private float _alphaSpeed;
     private TextMeshProUGUI _content;
-    private Color _alpha;
+    private Color _color;
 
     private void Awake()
     {
@@ -14,7 +14,7 @@ public class TimeDecrease : MonoBehaviour
         _alphaSpeed = 1.0f;
         _content = GetComponent<TextMeshProUGUI>();
         _content.text = "-2";
-        _alpha = _content.color;
+        _color = _content.color;
     }
     
     private void Start()
@@ -29,8 +29,8 @@ public class TimeDecrease : MonoBehaviour
             Destroy(gameObject);
         }
         transform.Translate(new Vector3(0, _moveSpeed * Time.deltaTime, 0));
-        _alpha.a = Mathf.Lerp(_alpha.a, 0, Time.deltaTime * _alphaSpeed);
-        _content.color = _alpha;
+        _color.a = Mathf.Lerp(_color.a, 0, Time.deltaTime * _alphaSpeed);
+        _content.color = _color;
     }
 
     private void InvokeDestroy()

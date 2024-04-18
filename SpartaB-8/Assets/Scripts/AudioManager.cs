@@ -5,14 +5,21 @@ using UnityEngine;
 public enum BGM_Type
 {
     BGM_Normal = 0,
-    BGN_NoTime,
-
+    BGM_NoTime,
 }
+
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioSource audioSource;
     public AudioClip clip;
+
+    [SerializeField]
+    private List<AudioClip> bgmList;
+
+    private float _current;
+    private float _percent;
+    private const float ChangeDuration = 1f;
 
     private void Awake()
     {
@@ -48,41 +55,34 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
-    [SerializeField]
-    private List<AudioClip> bgmList;
-
     public void ChangeBGM(BGM_Type newBGM)
     {
         StartCoroutine(ChangeBGMClip(bgmList[(int)newBGM]));
     }
 
-    float current;
-    float percent;
-    public readonly float changeDuration = 1f;
-
-    IEnumerator ChangeBGMClip(AudioClip newClip)
+    private IEnumerator ChangeBGMClip(AudioClip newClip)
     {
-        current = 0f;
-        percent = 0f;
+        _current = 0f;
+        _percent = 0f;
 
-        while (percent < 1)  // ±âÁ¸ÀÇ BGMÀÇ º¼·ýÀ» ÁÙ¿©³ª°£´Ù
+        while (_percent < 1)  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BGMï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
-            current += Time.deltaTime;
-            percent = current /  changeDuration;
-            audioSource.volume = Mathf.Lerp(1f, 0f, percent);
+            _current += Time.deltaTime;
+            _percent = _current /  ChangeDuration;
+            audioSource.volume = Mathf.Lerp(1f, 0f, _percent);
             yield return null;
         }
 
         audioSource.clip = newClip;
         audioSource.Play();
-        current = 0f;
-        percent = 0f;
+        _current = 0f;
+        _percent = 0f;
 
-        while (percent < 1)  // »õ·Î¿î BGMÀÇ º¼·ýÀ» Å°¿ö³ª°£´Ù
+        while (_percent < 1)  // ï¿½ï¿½ï¿½Î¿ï¿½ BGMï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         {
-            current += Time.deltaTime;
-            percent = current / changeDuration;
-            audioSource.volume = Mathf.Lerp(0f, 1f, percent);
+            _current += Time.deltaTime;
+            _percent = _current / ChangeDuration;
+            audioSource.volume = Mathf.Lerp(0f, 1f, _percent);
             yield return null;
         }
     }

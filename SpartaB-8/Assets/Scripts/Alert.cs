@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Alert : MonoBehaviour
 {
-    private Animator anim;
+    private Animator _anim;
 
     private void Awake()
     {
-        if (!TryGetComponent(out anim))
+        if (!TryGetComponent(out _anim))
         {
             Debug.Log("Alert.cs - Awake() - anim ���� ����");
         }
@@ -14,6 +14,6 @@ public class Alert : MonoBehaviour
 
     public void AlertTime()
     {
-        anim.SetTrigger("Alert");
+        _anim.SetTrigger(nameof(Alert));
     }
 }
