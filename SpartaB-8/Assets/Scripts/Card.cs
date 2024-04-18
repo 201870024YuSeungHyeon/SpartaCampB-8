@@ -17,6 +17,8 @@ public class Card : MonoBehaviour
     public SpriteRenderer frontImage;
     private static readonly int IsOpen = Animator.StringToHash("isOpen");
 
+    public bool isOpen = false;
+
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "SeungHyeonScene") _stageNumber = 0;
@@ -38,8 +40,9 @@ public class Card : MonoBehaviour
     }
 
     public void OpenCard()
-    {
-        if (!(Time.timeScale > 0.0f)) return;
+    {           
+        if (!(Time.timeScale > 0.0f)) return;        
+            
         ColorUtility.TryParseHtmlString("#C0C0C0", out var color); // 16진수 색상코드(옅은 회색)를 Color로 변환
         back.GetComponent<SpriteRenderer>().color = color; // 뒤집었던 카드 색상 변경
         if (GameManager.Instance.secondCard != null) return;
@@ -51,13 +54,15 @@ public class Card : MonoBehaviour
         front.SetActive(true);
         back.SetActive(false);
 
-        if (GameManager.Instance.firstCard == null)
-        {
+        if (GameManager.Instance.firstCard == null && !isOpen)
+        {            
+            isOpen = true;      
             GameManager.Instance.firstCard = this;
         }
-        else
-        {
-            GameManager.Instance.secondCard = this;
+        
+        if(GameManager.Instance.firstCard != null && !isOpen)
+        {            
+            GameManager.Instance.secondCard = this;            
             GameManager.Instance.Matched();
         }
     }
