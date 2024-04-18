@@ -1,7 +1,5 @@
 # 너 T야?조
 
-## 와이어 프레임
-
 ## 팀원
 
   팀장 **유승현**
@@ -49,4 +47,3 @@
 |:---:|:---:|:---:|
 |![유니티로고](https://github.com/201870024YuSeungHyeon/SpartaCampB-8/blob/main/png-clipart-unity-technologies-programmer-game-engine-video-game-others-miscellaneous-game-AnyEraser.png)|![vs코드로고](https://github.com/201870024YuSeungHyeon/SpartaCampB-8/blob/main/png-transparent-visual-studio-code-logo-AnyEraser-removebg-preview.png)|![깃허브 로고](https://github.com/201870024YuSeungHyeon/SpartaCampB-8/blob/main/github-desktop-2021-05-20-AnyEraser.png)|
 
-## 배운 점, 아쉬운 점
